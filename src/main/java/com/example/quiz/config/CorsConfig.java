@@ -1,6 +1,5 @@
 package com.example.quiz.config;
 
-package com.example.quiz.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

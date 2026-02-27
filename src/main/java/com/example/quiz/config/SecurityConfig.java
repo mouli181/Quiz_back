@@ -55,10 +55,11 @@ public class SecurityConfig {
             throws Exception {
 
         http
-                .cors(cors -> {}) // 🔥 CORS FIRST
+                .cors(cors -> {})
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->
@@ -69,6 +70,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     // ✅ Authentication Manager
     @Bean
